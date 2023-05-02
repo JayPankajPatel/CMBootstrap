@@ -1,5 +1,5 @@
 # CMBootstrap
-## This is teaching trail asked of me by my employer to explain the USACO Silver Problem: Social Distancing
+## This is teaching trial asked of me by my employer to explain the USACO Silver Problem: Social Distancing
 
 ## Problem Statement
 Farmer John is worried for the health of his cows after an outbreak of the highly contagious bovine disease COWVID-19.
