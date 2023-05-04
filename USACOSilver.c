@@ -20,7 +20,7 @@ void setIO(string sin, string sout) {
 	freopen(sout, "w", stdout);
 }
 
-int sort_pair_by_second(const void* pair1, const void* pair2){
+int sort_pair_by_second(const void* pair1, const void* pair2) {
 
   const Pair* elem1 = (const Pair*)pair1; 
   const Pair* elem2 = (const Pair*)pair2;
@@ -33,6 +33,11 @@ int sort_pair_by_second(const void* pair1, const void* pair2){
 
   return 0; 
 
+}
+void sort(Pair* arr, size_t size, size_t width, int(compare)(const void*, const void*)){
+  
+  qsort((void*)arr, size, width, compare); 
+  
 }
 bool check(){
 
@@ -79,10 +84,7 @@ int main(void){
     scanf("%lli", &interval[i].second); 
   }
 
-
-
-
-
+  sort(interval, sizeof(interval)/sizeof(Pair), sizeof(Pair), sort_pair_by_second); 
 
 
   free(interval); 
