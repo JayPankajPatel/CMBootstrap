@@ -57,5 +57,5 @@ Test cases 4-10 satisfy no additional constraints.
 
 Problem credits: Brian Dean 
 
-# Submission
+## Submission
 ![USACO Submission](/imgs/Solution_Submission.png)
