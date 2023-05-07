@@ -18,7 +18,7 @@ To install and setup up this project, follow these steps:
 
 ```
 git clone https://github.com/JayPankajPatel/CMBootstrap.git
-cd CMBoostrap
+cd CMBootstrap
 make
 ```
 The executable will be called `main`. 
