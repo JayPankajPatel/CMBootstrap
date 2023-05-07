@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX(a, b) ((a > b) ? (a : b))
-
 typedef char *string;
 typedef long long int ll;
 typedef struct Pair {
@@ -33,6 +31,7 @@ int sort_pair_by_second(const void *pair1, const void *pair2) {
 
   return 0;
 }
+
 void sort(Pair *arr, size_t size, size_t width,
           int (*compare)(const void *, const void *)) {
 
@@ -41,37 +40,47 @@ void sort(Pair *arr, size_t size, size_t width,
 
 bool check(Pair *interval, ll N, ll M, ll D) {
 
-  ll pos = interval[0].first;
+  // setting where cows can start being placed in pos
+  // i keeps track of which interval we are in
+  ll pos = 0;
   int cows_placed = 0;
   int i = 0;
 
   while (cows_placed < N) {
-
+    // this check is to make sure we are in an interval
+    // if we aren't we set it to the next valid interval's start
     if (pos <= interval[i].first) {
 
       pos = interval[i].first;
     }
-
+    // we can only place cows inside a valid interval
+    // place a cow and move a the distance we are checking
+    // in the binary search function
     if (((interval[i].first) <= (pos)) && ((pos) <= interval[i].second)) {
       cows_placed++;
       pos += D;
 
     }
 
+    // we are outside a valid interval, we will start
+    // putting cows in the next interval
     else {
       i++;
     }
+    // checking if we have run out of space to place cows
+    if (i >= M) {
 
-    if(i >= M) {
-
-        return false; 
+      return false;
     }
   }
 
+  // if we get here, all cows were placed and the inputted D
+  // is a valid distance to place the cows
   return true;
 }
-ll binary_search(Pair *interval, ll N, ll M) {
 
+ll binary_search(Pair *interval, ll N, ll M) {
+  // setting up the min and max possible values given an input
   ll left = 0;
   ll right = interval[M - 1].second;
   ll pos_sol = 0;
@@ -81,7 +90,10 @@ ll binary_search(Pair *interval, ll N, ll M) {
     ll mid = left + (right - left) / 2;
 
     bool is_valid = check(interval, N, M, mid);
-
+    // if this is true, we found a valid answer,
+    // however we continue doing binary search
+    // until we find the greatest valid answer
+    // which is stored in pos_sol
     if (is_valid) {
 
       pos_sol = mid;
@@ -99,27 +111,34 @@ ll binary_search(Pair *interval, ll N, ll M) {
 
 int main(void) {
 
-  setIO("socdist.in", "socdist.out"); // changing stdin and stdout to respective
-                                      // input and output files
+  // changing stdin and stdout to respective
+  // input and output files
+  setIO("socdist.in", "socdist.out"); 
   ll N, M;
-  scanf("%lli", &N); // First is N and M where N is the number of cows
-  scanf("%lli", &M); // And M is the number of Mutually Disjoint Sets given
 
+  // First line inputs are N and M where N is the number of cows
+  // And M is the number of Mutually Disjoint Sets 
+  scanf("%lli", &N);
+  scanf("%lli", &M); 
+  
+  // allocating memory for intervals
   Pair *interval = malloc(sizeof(Pair) * M);
 
   // Reading the intervals described as a and b in the problem
-
   for (size_t i = 0; i < M; i++) {
 
     scanf("%lli", &interval[i].first);
     scanf("%lli", &interval[i].second);
   }
-
+  
+  // sorting in order to check D distance using binary_search
   sort(interval, M, sizeof(Pair), sort_pair_by_second);
 
   ll left = binary_search(interval, N, M);
 
+  // output answer to file
   printf("%lli\n", left);
-
+  
+  // free memory allocated
   free(interval);
 }
