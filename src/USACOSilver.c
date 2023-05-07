@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char *string;
+typedef char* string;
 typedef long long int ll;
 typedef struct Pair {
 
@@ -113,14 +113,14 @@ int main(void) {
 
   // changing stdin and stdout to respective
   // input and output files
-  setIO("socdist.in", "socdist.out"); 
+  setIO("socdist.in", "socdist.out");
   ll N, M;
 
   // First line inputs are N and M where N is the number of cows
-  // And M is the number of Mutually Disjoint Sets 
+  // And M is the number of Mutually Disjoint Sets
   scanf("%lli", &N);
-  scanf("%lli", &M); 
-  
+  scanf("%lli", &M);
+
   // allocating memory for intervals
   Pair *interval = malloc(sizeof(Pair) * M);
 
@@ -130,7 +130,7 @@ int main(void) {
     scanf("%lli", &interval[i].first);
     scanf("%lli", &interval[i].second);
   }
-  
+
   // sorting in order to check D distance using binary_search
   sort(interval, M, sizeof(Pair), sort_pair_by_second);
 
@@ -138,7 +138,7 @@ int main(void) {
 
   // output answer to file
   printf("%lli\n", left);
-  
+
   // free memory allocated
   free(interval);
 }
