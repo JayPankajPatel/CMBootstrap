@@ -1,6 +1,6 @@
 CC=gcc
 NAME=main
-CFLAGS= -g -Wall -O3 -std=c11 -o 
+CFLAGS= -g -Wall -std=c11 -o  
 SOURCE=USACOSilver.c
 
 
