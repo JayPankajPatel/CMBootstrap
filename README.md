@@ -1,7 +1,30 @@
 # CMBootstrap
-## This is teaching trial asked of me by my employer to explain the USACO Silver Problem: Social Distancing
+
+This is teaching trial asked of me by my employer to explain the USACO Silver Problem: Social Distancing
+## Installation
+To install and setup up this project, follow these steps:  
+
+**1. Clone the repository to your local machine**  
+
+`git clone https://github.com/JayPankajPatel/CMBootstrap.git`  
+
+**2. Navigate to the project directory**  
+
+`cd CMBoostrap`  
+
+**3. Make the executable.**  
+
+`make`  
+
+```
+git clone https://github.com/JayPankajPatel/CMBootstrap.git
+cd CMBoostrap
+make
+```
+The executable will be called `main`. 
 
 ## Problem Statement
+
 Farmer John is worried for the health of his cows after an outbreak of the highly contagious bovine disease COWVID-19.
 In order to limit transmission of the disease, Farmer John's N
  cows (2≤N≤105
@@ -12,7 +35,7 @@ In order to limit transmission of the disease, Farmer John's N
  represents the distance between the closest pair of cows. Please help the cows determine the largest possible value of D
 .
 
-INPUT FORMAT (file socdist.in):
+### INPUT FORMAT (file socdist.in):
 The first line of input contains N
  and M
 . The next M
@@ -26,7 +49,7 @@ Print the largest possible value of D
  units apart. A solution with D>0
  is guaranteed to exist.
  
-SAMPLE INPUT:  
+### SAMPLE INPUT:  
 
 5 3  
 
@@ -37,7 +60,7 @@ SAMPLE INPUT:
 9 9  
 
 
-SAMPLE OUTPUT:  
+### SAMPLE OUTPUT:  
 
 2
 
@@ -49,7 +72,7 @@ One way to achieve D=2
  and 9
 .
 
-SCORING:  
+### SCORING:  
 
 Test cases 2-3 satisfy b≤10^5.  
 
