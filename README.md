@@ -55,4 +55,7 @@ Test cases 2-3 satisfy b≤10^5.
 
 Test cases 4-10 satisfy no additional constraints.  
 
-Problem credits: Brian Dean  
+Problem credits: Brian Dean 
+
+## Submission
+![USACO Submission](/imgs/Solution_Submission.png)
